@@ -1,0 +1,55 @@
+\newpage
+\begin{center}
+    \bfseries \zihao{3} 摘~要
+\end{center}
+\par
+
+近年来，随着生成式人工智能技术的快速发展，基于扩散模型的图像生成方法在计算机视觉领域展现出卓越的性能，
+成为研究的热点。然而，这类模型通常需要处理复杂的多步骤计算过程，对硬件资源和实时性提出了更高要求。
+以Stable Diffusion为例，其生成一张1024×1024分辨率的图像需经过几十次迭代，
+单卡GPU的推理延迟较高，难以满足实际应用场景的需求。在此背景下，
+许多研究引入分布式推理方法来降低推理延迟，以加速模型推理。
+然而，现有的分布式推理方案依赖传统并行策略（如张量并行、序列并行）和机械化的异步通信机制。
+这些方法虽然能实现基本的并行化，但存在两方面的缺陷：一方面，对高算力GPU集群的依赖导致硬件成本很高；
+另一方面，频繁的跨设备通信引入了超过30\%的额外开销。
+针对这一问题，本文提出一种基于特征相似度的自适应通信优化方法。通过量化分析相邻扩散步骤间特征的相似度
+，设计了动态冻结关键值（KV）传输的通信策略，并使用异步传输方式降低通信开销。实验结果表明，该方法在保证图像生成质量
+的前提下，大幅降低分布式推理延迟（最高可达33\%），为扩散模型分布式推理在低成本商用GPU集群上的高效部署提供
+了解决方案。
+
+\noindent \textbf{关键词：} 扩散模型，分布式推理，KV缓存，通信优化
+
+\newpage
+\begin{center}
+    \bfseries \zihao{3} Abstract
+\end{center}
+
+\par
+In recent years, with the rapid development of generative artificial intelligence technologies, 
+image - generation methods based on diffusion models have demonstrated remarkable performance 
+in the field of computer vision and become a research focus. However, such models typically 
+need to handle complex multi - step computational processes, imposing higher requirements 
+on hardware resources and real - time performance. Take Stable Diffusion as an example, 
+generating an image with a resolution of 1024×1024 requires dozens of iterations, and the 
+inference latency of a single - GPU card is relatively high, making it difficult to meet the 
+demands of practical application scenarios. Against this backdrop, many studies have introduced 
+distributed inference methods to reduce inference latency and accelerate model inference.
+However, existing distributed inference schemes rely on traditional parallel strategies (such 
+as tensor parallelism and sequence parallelism) and mechanized asynchronous communication 
+mechanisms. Although these methods can achieve basic parallelization, they have two drawbacks. 
+On one hand, the dependence on high - computing - power GPU clusters leads to high hardware 
+costs. On the other hand, frequent cross - device communication introduces additional overhead 
+of more than 30\%.
+To address this issue, this paper proposes an adaptive communication optimization method based 
+on feature similarity. By quantitatively analyzing the similarity of features between adjacent 
+diffusion steps, a communication strategy for dynamically freezing key - value (KV) transmission 
+is designed, and an asynchronous transmission mode is adopted to reduce communication overhead. 
+Experimental results show that, under the premise of ensuring image - generation quality, 
+this method significantly reduces distributed inference latency (up to 33\% at most), providing
+ a solution for the efficient deployment of distributed inference of diffusion models on 
+ low - cost commercial GPU clusters.
+
+
+
+\noindent \textbf{Key words：} Diffusion models、 Distributed inference、 
+Key-value (KV) cache、Communication optimization

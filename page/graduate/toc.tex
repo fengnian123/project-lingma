@@ -1,0 +1,35 @@
+\newpage
+
+\ifbooltrue{ListOfContents}
+{
+    \phantomsection
+    \markloc
+    \tableofcontents
+}
+
+\begingroup
+    \renewcommand*{\addvspace}[1]{}
+    \ifbooltrue{ListOfFigures}
+    {
+        \newpage
+        \phantomsection
+        \marklof
+        \listoffigures
+    }
+
+    \ifbooltrue{ListOfTables}
+    {
+        \newpage
+        \phantomsection
+        \marklot
+        \listoftables
+    }
+
+    \ifbooltrue{ListOfAlgorithms}
+    {
+        \newpage
+        \phantomsection
+        \markloa
+        \listofalgotocloft
+    }
+\endgroup
